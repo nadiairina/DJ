@@ -5,8 +5,8 @@
 
 :root {
     /* Cores */
-    --color-primary: #00FFFF; /* Ciano Elétrico (Destaque) */
-    --color-secondary: #FF00FF; /* Magenta (Destaque Secundário/Hover) */
+    --color-primary: #00FFFF; /* Ciano ElÃ©trico (Destaque) */
+    --color-secondary: #FF00FF; /* Magenta (Destaque SecundÃ¡rio/Hover) */
     --color-dark-bg: #111827; /* Fundo Escuro (Quase Preto) */
     --color-light-text: #F3F4F6; /* Texto Claro */
     --color-gray-text: #9CA3AF; /* Texto Cinzento */
@@ -67,7 +67,7 @@ a {
 }
 .nav-links a:hover {
     color: var(--color-primary);
-    text-shadow: 0 0 5px var(--color-primary); 
+    text-shadow: 0 0 5px var(--color-primary); /* Melhoria: Efeito Neon Subtil */
 }
 .btn-contact {
     background: var(--color-primary);
@@ -78,7 +78,7 @@ a {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2); 
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2); /* Melhoria: Efeito Glow */
 }
 .btn-contact:hover {
     background-color: var(--color-secondary);
@@ -101,7 +101,7 @@ a {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2); 
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2); /* Melhoria: Efeito Glow */
 }
 
 .btn-primary:hover {
@@ -112,7 +112,7 @@ a {
 }
 
 /* ========================================================================
- * 3. Layout de Secções
+ * 3. Layout de SecÃ§Ãµes
  * ======================================================================== */
 section {
     padding: 80px 0;
@@ -175,7 +175,6 @@ section {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
 }
 .gallery-item img {
     width: 100%;
@@ -187,11 +186,6 @@ section {
 .gallery-item:hover img {
     transform: scale(1.05);
 }
-/* MELHORIA UI: EFEITO NEON NA GALERIA */
-.gallery-item:hover { 
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Efeito Neon */
-}
-
 .gallery-item.tall { grid-row: span 2; }
 .gallery-item.wide { grid-column: span 2; }
 
@@ -202,29 +196,7 @@ section {
     gap: 60px;
     align-items: center;
 }
-/* MELHORIA UI: LAYOUT DE ESTATÍSTICAS */
-.stats {
-    display: flex; 
-    justify-content: space-between;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #E5E7EB; 
-    gap: 20px;
-}
-.stat-item {
-    text-align: center;
-    flex: 1;
-}
-.stat-number { 
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: var(--color-primary);
-}
-.stat-label {
-    color: var(--color-gray-text);
-    font-weight: 400;
-}
+.stat-number { color: var(--color-primary); }
 
 /* Services Section */
 .services-grid {
@@ -238,15 +210,9 @@ section {
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    /* MELHORIA UI: EFEITO HOVER NO CARD DE SERVIÇOS */
-    transition: all 0.3s ease; 
-}
-.service-card:hover {
-    transform: translateY(-8px); /* Elevação suave */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 255, 255, 0.2); /* Sombra mais destacada + Neon */
 }
 
-/* Estilo para ícones de Serviço */
+/* Estilo para Ã­cones de ServiÃ§o */
 .service-icon {
     font-size: 2.0rem;
     margin-bottom: 15px;
@@ -388,11 +354,6 @@ section {
 .contact-form textarea {
     resize: vertical;
 }
-/* MELHORIA UX/UI: BOTÃO DO FORMULÁRIO 100% WIDTH */
-.contact-form button.btn-primary {
-    width: 100%; 
-}
-
 
 /* Footer (Estilo Limpo) */
 footer {
@@ -415,11 +376,6 @@ footer {
     }
     .hero-content h1 {
         font-size: 2.5rem;
-    }
-    /* MELHORIA UI: EMPILHAR STATS EM MOBILE */
-    .stats {
-        flex-direction: column;
-        gap: 15px;
     }
 }
 
@@ -459,9 +415,9 @@ footer {
 }
 
 /* ========================================================================
- * 5. Estilos Específicos do Menu Móvel
+ * 5. Estilos EspecÃ­ficos do Menu MÃ³vel (CORRIGIDO)
  * ======================================================================== */
-/* Esconder o botão de menu móvel em desktops */
+/* Esconder o botÃ£o de menu mÃ³vel em desktops */
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -471,7 +427,7 @@ footer {
     z-index: 1001;
 }
 
-/* Esconder o menu móvel por predefinição */
+/* Esconder o menu mÃ³vel por predefiniÃ§Ã£o */
 .mobile-menu {
     display: none;
     position: absolute;
@@ -515,11 +471,11 @@ footer {
         display: none; /* Esconde links de desktop */
     }
     .mobile-menu-btn {
-        display: block; /* Mostra o botão hambúrguer */
+        display: block; /* Mostra o botÃ£o hambÃºrguer */
     }
 }
 
-/* Estilos para o ícone do botão móvel */
+/* Estilos para o Ã­cone do botÃ£o mÃ³vel */
 .mobile-menu-btn span {
     display: block;
     width: 25px;
