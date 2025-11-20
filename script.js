@@ -42,7 +42,8 @@ function closeMobileMenu() {
 function scrollToSection(sectionId) {
     const element = document.getElementById(sectionId);
     if (element) {
-        const offsetTop = element.offsetTop - 80;
+        // Offset de 80px para a navbar fixa
+        const offsetTop = element.offsetTop - 80; 
         window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
@@ -63,44 +64,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Contact form submission (Adicionado validação)
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const name = formData.get('name').trim();
-    const email = formData.get('email').trim();
-    const eventType = formData.get('event-type').trim(); 
-    const details = formData.get('message').trim();
-    
-    // *******************************************************************
-    // Validação
-    // *******************************************************************
-    if (!name || !email || !eventType || !details) {
-        showToast('Erro: Por favor, preencha todos os campos obrigatórios.', false);
-        return;
-    }
-    
-    // Validação básica de email (Regex Simples)
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showToast('Erro: Por favor, insira um endereço de e-mail válido.', false);
-        return;
-    }
-    
-    // Se a validação passar:
-    
-    // Show success toast
-    showToast('Mensagem enviada! Entrarei em contato em breve.', true);
-    
-    // Reset form
-    contactForm.reset();
-    
-    // Simulação do envio de dados
-    console.log('Form submitted:', { name, email, eventType, details });
-    
-    // Sugestão: Usar a Fetch API para enviar dados para um endpoint real
-});
+if (contactForm) { // Garantir que o formulário existe
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const name = formData.get('name').trim();
+        const email = formData.get('email').trim();
+        const eventType = formData.get('event-type').trim(); 
+        const details = formData.get('message').trim();
+        
+        // *******************************************************************
+        // Validação
+        // *******************************************************************
+        if (!name || !email || !eventType || !details) {
+            showToast('Erro: Por favor, preencha todos os campos obrigatórios.', false);
+            return;
+        }
+        
+        // Validação básica de email (Regex Simples)
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showToast('Erro: Por favor, insira um endereço de e-mail válido.', false);
+            return;
+        }
+        
+        // Se a validação passar:
+        
+        // Show success toast
+        showToast('Mensagem enviada! Entrarei em contato em breve.', true);
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Simulação do envio de dados
+        console.log('Form submitted:', { name, email, eventType, details });
+        
+        // Sugestão: Usar a Fetch API para enviar dados para um endpoint real
+    });
+}
+
 
 // Toast notification function (Adicionado status de sucesso/erro)
 function showToast(message, isSuccess = true) {
@@ -127,6 +131,9 @@ function showToast(message, isSuccess = true) {
          toast.style.background = 'none'; 
          toast.style.boxShadow = 'none';
          toast.style.maxWidth = '450px';
+         // Permite fechar manualmente (melhor para detalhes de produto)
+         toast.style.cursor = 'pointer'; 
+         toast.addEventListener('click', () => toast.remove());
     } else {
         toast.innerHTML = `
             <strong>${statusText}</strong>
@@ -144,12 +151,15 @@ function showToast(message, isSuccess = true) {
     // Hide toast after 3 seconds (ou 10s se for detalhes do produto)
     const hideTime = message.includes('<div') ? 10000 : 3000;
     
-    setTimeout(() => {
-        toast.classList.remove('show');
+    // Auto-hide apenas se não for o toast de produto
+    if (!message.includes('<div')) {
         setTimeout(() => {
-            toast.remove();
-        }, 300);
-    }, hideTime);
+            toast.classList.remove('show');
+            setTimeout(() => {
+                toast.remove();
+            }, 300);
+        }, hideTime);
+    }
 }
 
 // Intersection Observer for animations (optional enhancement)
@@ -197,8 +207,6 @@ if ('IntersectionObserver' in window) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                // Como já adicionamos loading="lazy" no HTML, esta parte pode ser opcionalmente removida,
-                // mas mantê-la como fallback não prejudica
                 // img.src = img.dataset.src; 
                 img.classList.remove('lazy');
                 imageObserver.unobserve(img);
@@ -266,7 +274,7 @@ function viewProduct(productId) {
         let featuresHTML = details.features.map(f => `<li style="margin-bottom: 0.5rem;">✓ ${f}</li>`).join('');
         
         showToast(`
-            <div style="text-align: left; max-width: 400px;">
+            <div style="text-align: left; max-width: 400px; padding: 15px; background: var(--color-dark-bg); border-radius: 8px; box-shadow: 0 0 15px var(--color-primary);">
                 <h3 style="margin-bottom: 0.5rem; color: var(--color-light-text); font-size: 1.25rem;">${details.name}</h3>
                 <p style="font-size: 1.5rem; font-weight: bold; color: var(--color-primary); margin-bottom: 1rem;">${details.price}</p>
                 <p style="margin-bottom: 1rem; color: var(--color-gray-text); line-height: 1.6;">${details.description}</p>
@@ -276,6 +284,7 @@ function viewProduct(productId) {
                 <button onclick="addToCart('${productId}')" style="background: var(--color-primary); color: var(--color-dark-bg); border: none; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; width: 100%; font-weight: 600; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
                     Adicionar ao Carrinho
                 </button>
+                <p style="font-size: 0.75rem; color: var(--color-gray-text); margin-top: 10px; text-align: center;">Clique para fechar</p>
             </div>
         `, true); // Usar `true` explicitamente
     }
