@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio - DJ Profissional & Produção Musical</title>
+    <title>Music Booth - DJ Profissional</title>
     <meta name="description" content="DJ e Produtor musical especializado em eventos, residências de clube e criação de música eletrónica.">
     
     <script src="https://cdn.tailwindcss.com"></script> 
@@ -14,12 +16,12 @@
 <body>
     <nav id="navbar">
         <div class="container">
-            <h1 class="logo">Studio</h1>
+            <h1 class="logo">Music Booth</h1>
             <div class="nav-links">
-                <a href="#portfolio">Gigs</a>
+                
                 <a href="#about">Sobre o DJ</a>
                 <a href="#services">Booking</a>
-                <a href="#shop">Loja</a>
+               
                 <button class="btn-contact" onclick="scrollToSection('contact')">Contactos</button>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -29,11 +31,11 @@
             </button>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-            <a href="#portfolio" onclick="closeMobileMenu()">Gigs</a>
-            <a href="#about" onclick="closeMobileMenu()">Sobre</a>
+            
+            <a href="#about" onclick="closeMobileMenu()">Sobre o DJ</a>
             <a href="#services" onclick="closeMobileMenu()">Booking</a>
-            <a href="#shop" onclick="closeMobileMenu()">Loja</a>
-            <button class="btn-contact" onclick="scrollToSection('contact'); closeMobileMenu()">Contato</button>
+            
+            <button class="btn-contact" onclick="scrollToSection('contact'); closeMobileMenu()">Contactos</button>
         </div>
     </nav>
 
@@ -142,87 +144,7 @@
             </div>
         </section>
 
-        <section id="shop" class="shop">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Loja Digital (Para Produtores)</h2>
-                    <p>Packs de som, Edits e Recursos exclusivos para elevar as suas produções</p>
-                </div>
-                <div class="shop-grid">
-                    <div class="product-card" data-product="edit-vintage">
-                        <div class="product-image">
-                            <img src="/src/assets/gallery-1.jpg" alt="Vintage Edit Pack" loading="lazy">
-                            <div class="product-overlay">
-                                <button class="btn-view" onclick="viewProduct('edit-vintage')">Ver Detalhes</button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <span class="product-category">Edits</span>
-                            <h3>Vintage House Edits</h3>
-                            <p>Pack com 15 remixes exclusivos, prontos para a pista.</p>
-                            <div class="product-footer">
-                                <span class="product-price">€29,99</span>
-                                <button class="btn-add-cart" onclick="addToCart('edit-vintage')">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-product="sample-moody">
-                        <div class="product-image">
-                            <img src="/src/assets/gallery-2.jpg" alt="Moody Samples Pack" loading="lazy">
-                            <div class="product-overlay">
-                                <button class="btn-view" onclick="viewProduct('sample-moody')">Ver Detalhes</button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <span class="product-category">Samples</span>
-                            <h3>Deep Tech Sample Pack</h3>
-                            <p>Pack com 200 samples e loops para produções Deep Tech.</p>
-                            <div class="product-footer">
-                                <span class="product-price">€34,99</span>
-                                <button class="btn-add-cart" onclick="addToCart('sample-moody')">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-product="course-masterclass">
-                        <div class="product-image">
-                            <img src="/src/assets/gallery-3.jpg" alt="DJ Masterclass Course" loading="lazy">
-                            <div class="product-overlay">
-                                <button class="btn-view" onclick="viewProduct('course-masterclass')">Ver Detalhes</button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <span class="product-category">Curso</span>
-                            <h3>Masterclass: Mixagem Avançada</h3>
-                            <p>Curso completo de produção e DJing profissional, passo a passo.</p>
-                            <div class="product-footer">
-                                <span class="product-price">€79,99</span>
-                                <button class="btn-add-cart" onclick="addToCart('course-masterclass')">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-product="preset-serum">
-                        <div class="product-image">
-                            <img src="/src/assets/gallery-4.jpg" alt="Serum Presets Pack" loading="lazy">
-                            <div class="product-overlay">
-                                <button class="btn-view" onclick="viewProduct('preset-serum')">Ver Detalhes</button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <span class="product-category">Presets</span>
-                            <h3>Serum Presets Collection</h3>
-                            <p>Pacote de 50 presets de baixo e synth para o Serum.</p>
-                            <div class="product-footer">
-                                <span class="product-price">€19,99</span>
-                                <button class="btn-add-cart" onclick="addToCart('preset-serum')">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-            </div>
-        </section>
+        
 
         <section id="contact" class="contact">
             <div class="container">
