@@ -53,8 +53,8 @@ a {
 
 /* NOVO: Estilo para Logótipo Circular na Navbar */
 .navbar-logo-circle {
-    width: 110px; /* Tamanho pequeno */
-    height: 110px;
+    width: 120px; /* Tamanho pequeno */
+    height: 120px;
     border-radius: 50%;
     background: var(--color-dark-bg);
     display: flex;
