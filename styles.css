@@ -483,14 +483,6 @@ footer {
     border-top: 1px solid #E5E7EB;
 }
 
-/* NOVO: Estilos para o Título das Redes Sociais */
-.social-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-dark-bg);
-    margin-bottom: 15px; 
-}
-
 /* NOVO: Estilos para Redes Sociais */
 .social-links {
     display: flex;
@@ -513,6 +505,7 @@ footer {
     text-shadow: 0 0 8px var(--color-primary);
 }
 /* Fim dos Estilos para Redes Sociais */
+
 
 /* Media Queries (Gerais) */
 @media (max-width: 992px) {
