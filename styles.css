@@ -64,10 +64,37 @@ a {
     align-items: center;
 }
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--color-primary);
+    display: none; /* Escondido, substituído pelo logo-circle */
 }
+
+/* NOVO: Estilo para Logótipo Circular na Navbar */
+.navbar-logo-circle {
+    width: 45px; /* Tamanho pequeno */
+    height: 45px;
+    border-radius: 50%;
+    background: var(--color-dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6); /* Efeito Neon */
+    border: 2px solid var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+.navbar-logo-circle:hover {
+    box-shadow: 0 0 15px var(--color-primary); 
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.navbar-logo-circle .logo-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+/* FIM NOVO ESTILO NAVBAR LOGO */
+
 .nav-links a {
     color: var(--color-light-text);
     margin-left: 20px;
@@ -304,7 +331,8 @@ section {
 }
 
 /* NOVO: Estilo para o Título do Serviço (Atualizado: Tamanho maior e cor Ciano) */
-.service-card h4 { /* <-- CORRIGIDO DE H2 PARA H4 */
+/* CORRIGIDO: Tag alterada de h2 para h4 para corresponder ao HTML */
+.service-card h4 {
     font-size: 1.6rem; /* Aumenta o tamanho do título do serviço */
     font-weight: 700; /* Aumenta a espessura para destaque */
     color: var(--color-primary); /* Aplica a cor ciano */
@@ -324,7 +352,7 @@ section {
 .service-icon {
     font-size: 2.0rem;
     margin-bottom: 15px;
-    color: var(--color-dark-bg);
+    color: var(--color-primary); /* CORRIGIDO: Cor Ciano para melhor contraste/neon effect */
     width: 60px;
     height: 60px;
     display: flex;
@@ -532,7 +560,8 @@ footer {
         font-size: 1rem;
     }
     /* NOVO: Ajuste do Título do Serviço em Mobile */
-    .service-card h4 { /* <-- CORRIGIDO DE H2 PARA H4 */
+    /* CORRIGIDO: Tag alterada de h2 para h4 para corresponder ao HTML */
+    .service-card h4 {
         font-size: 1.2rem;
         /* A cor será herdada do estilo geral, mas mantemos o tamanho menor para mobile */
     }
